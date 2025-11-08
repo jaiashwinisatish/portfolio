@@ -29,7 +29,8 @@ Visit the live site: [Your Portfolio URL]
 ![Hero Section](./screenshots/hero.png)
 
 ### Projects Showcase
-![Projects](./screenshots/projects.png)
+![Projects](![Uploading Ashwini Jaiswal - Creative Developer - Google Chrome 09-11-2025 00_19_25.png…]()
+)
 
 ### Contact Form
 ![Contact](./screenshots/contact.png)
