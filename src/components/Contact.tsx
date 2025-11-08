@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { Mail, Github, Linkedin, Send, MapPin, Phone } from 'lucide-react';
+import { supabase } from '../lib/supabase';
 
 export const Contact = () => {
   const ref = useRef(null);
@@ -17,14 +18,29 @@ export const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitStatus('idle');
 
-    await new Promise(resolve => setTimeout(resolve, 1500));
+    try {
+      const { error } = await supabase.from('contacts').insert({
+        name: formData.name,
+        email: formData.email,
+        message: formData.message,
+      });
 
-    setIsSubmitting(false);
-    setSubmitStatus('success');
-    setFormData({ name: '', email: '', message: '' });
-
-    setTimeout(() => setSubmitStatus('idle'), 3000);
+      if (error) {
+        console.error('Supabase error:', error);
+        setSubmitStatus('error');
+      } else {
+        setSubmitStatus('success');
+        setFormData({ name: '', email: '', message: '' });
+      }
+    } catch (err) {
+      console.error('Error submitting form:', err);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+      setTimeout(() => setSubmitStatus('idle'), 4000);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -241,7 +257,17 @@ export const Contact = () => {
                   animate={{ opacity: 1, y: 0 }}
                   className="p-4 bg-green-500/10 border border-green-500 rounded-lg text-green-400 text-center"
                 >
-                  Message sent successfully! I'll get back to you soon.
+                  ✅ Message sent successfully! I'll get back to you soon.
+                </motion.div>
+              )}
+
+              {submitStatus === 'error' && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="p-4 bg-red-500/10 border border-red-500 rounded-lg text-red-400 text-center"
+                >
+                  ⚠️ Something went wrong. Please try again later.
                 </motion.div>
               )}
             </form>
