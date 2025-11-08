@@ -21,12 +21,12 @@ export const Contact = () => {
     setSubmitStatus('idle');
 
     try {
-    const { error } = await supabase.from('contact_messages').insert({
-  name: formData.name,
-  email: formData.email,
-  message: formData.message,
-});
-
+      // FIXED: Changed from 'contact_messages' to 'contacts'
+      const { error } = await supabase.from('contacts').insert({
+        name: formData.name,
+        email: formData.email,
+        message: formData.message,
+      });
 
       if (error) {
         console.error('Supabase error:', error);
