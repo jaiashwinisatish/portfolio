@@ -21,7 +21,7 @@ export const Contact = () => {
     setSubmitStatus('idle');
 
     try {
-      const { error } = await supabase.from('contacts').insert({
+      const { error } = await supabase.from('contact_messages').insert({
         name: formData.name,
         email: formData.email,
         message: formData.message,
