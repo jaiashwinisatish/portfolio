@@ -26,14 +26,16 @@ Visit the live site: [Your Portfolio URL]
 ## 📸 Screenshots
 
 ### Hero Section
-![Hero Section](./screenshots/hero.png)
+<img width="1920" height="1020" alt="Ashwini Jaiswal - Creative Developer - Google Chrome 09-11-2025 00_21_54" src="https://github.com/user-attachments/assets/3a26fd20-c28b-483e-b918-6b3aad9ac9c8" />
+
 
 ### Projects Showcase
-![Projects](![Uploading Ashwini Jaiswal - Creative Developer - Google Chrome 09-11-2025 00_19_25.png…]()
-)
+<img width="1920" height="1020" alt="Ashwini Jaiswal - Creative Developer - Google Chrome 09-11-2025 00_19_25" src="https://github.com/user-attachments/assets/f5007852-f236-41b6-968f-2209ec33712b" />
+
 
 ### Contact Form
-![Contact](./screenshots/contact.png)
+<img width="966" height="778" alt="Ashwini Jaiswal - Creative Developer - Google Chrome 09-11-2025 00_22_50" src="https://github.com/user-attachments/assets/450356d6-c54e-40cf-812e-b12d45326cdd" />
+
 
 ## 🛠️ Tech Stack
 
